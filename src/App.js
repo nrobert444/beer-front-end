@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import Beer from './beer-item.js';
-
+import './App.css';
 export default class App extends Component {
     state = { beer: [] }
 

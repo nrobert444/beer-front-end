@@ -4,7 +4,7 @@ import Beer from './beer-item.js';
 
 export default class List extends Component {
     state = { beer: {} }
-    
+
     async componentDidMount() {
         const data = await getBeer;
         if (data.body) {
@@ -14,7 +14,9 @@ export default class List extends Component {
     render() {
         const { beer } = this.state;
         return (
-            <Beer beers={ beer } />
+            <div className = 'beer-list'>
+                <Beer beers={ beer } />
+            </div>
       );
     }
 }

@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.beer-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+}
+
+li {
+  border: solid 2px black;
+  margin: 20px;
+  background-color: lightyellow;
+  list-style-type: none;
+  height: 400px;
+  width: 300px;
+}
+img {
+  height: 200px;
+  width: 200px;
+}
