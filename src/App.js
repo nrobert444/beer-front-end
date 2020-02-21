@@ -6,7 +6,7 @@ export default class App extends Component {
     state = { beer: [] }
 
     async componentDidMount() {
-        const data = await request.get(`http://agile-coast-09251.herokuapp.com/api/beers`)
+        const data = await request.get(`https://agile-coast-09251.herokuapp.com/api/beers`)
         this.setState({ beer: data.body})
     }
     render() {
