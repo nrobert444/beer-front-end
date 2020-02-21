@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import './App.css'; 
-import './Detail.css';
 export default class Beer extends Component {
     render() {
-        const { beers } = this.props;
+        const { beer } = this.props;
         const {
             name,
             brewery,
@@ -11,7 +9,7 @@ export default class Beer extends Component {
             ABV,
             is_season,
             url,
-        } = beers;
+        } = beer;
         return (
     <div>
         <li>
