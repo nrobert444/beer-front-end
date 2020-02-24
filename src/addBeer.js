@@ -48,12 +48,12 @@ export default class addBeer extends Component {
             const newBeer = {
                 name: this.state.name,
                 brewery: this.state.brewery,
-                style: this.state.style,
+                style_id: this.state.style,
                 url: this.state.image,
                 abv: this.state.abv,
-                isSeason: this.state.isSeason,
+                is_season: this.state.isSeason,
             }
-            const dbBeer = await request.post(`https://agile-coast-09251.herokuapp.com/api/beers/$`, newBeer);
+            const dbBeer = await request.post(`https://agile-coast-09251.herokuapp.com/api/beers`, newBeer);
     
     
             console.log(dbBeer)
