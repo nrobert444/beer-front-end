@@ -7,8 +7,8 @@ export default class Beer extends Component {
             brewery,
             style, 
             ABV,
-            is_season,
             url,
+            is_season,
         } = beer;
         return (
     <div>
@@ -17,7 +17,7 @@ export default class Beer extends Component {
                     <p>Name: { name }</p>
                     <p><img src={ url } alt={ url }/></p>
                     <p>ABV: { ABV }</p>
-                    <p>Brewery: { brewery}</p>
+                    <p>Brewery: { brewery }</p>
                     <p>style: { style }</p>
                     <p>In Season: { is_season }</p>
             </div>

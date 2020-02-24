@@ -15,7 +15,7 @@ export default class Detail extends Component {
     render() {
         const { beer } = this.state;
         return (
-            <Beer beerObject={beer} />
+            <Beer beer={beer} />
         );
     }
 }

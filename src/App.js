@@ -1,39 +1,32 @@
 import React, { Component } from 'react';
-import request from 'superagent';
-import Beer from './beer-item.js';
 import addBeer from './addBeer.js';
+import List from './beer-list.js';
 import './App.css';
 import Detail from './detail.js';
-
 import {
   Route,
   Switch,
   Link,
-  BrowserRouter as Router, }
+  BrowserRouter as Router }
   from 'react-router-dom';
+// import beerhall from '../public/beerhall.jpg';
+import Header from './header.js';
 
 
 export default class App extends Component {
-    state = { beer: [] }
-
-    async componentDidMount() {
-        const data = await request.get(`https://agile-coast-09251.herokuapp.com/api/beers`)
-        this.setState({ beer: data.body})
-    }
     render() {
         return (
           <Router>
+            {/* <Header beerhall={beerhall} /> */}
+
+            <Link to='/'>Home</Link>
+            <Link to='/add'>Add Beer</Link>
             <Switch>
               <Route exact path= '/' component={List} />
-              <Route exact path= '/:beerId' component={addBeer} />
+              <Route exact path= '/add' component={addBeer} />
+              <Route exact path= '/:beerId' component={Detail} />
             </Switch>
           </Router>
-                <ul>
-                    {
-                    this.state.beer.map((beer, index) =>
-                    <Beer beer={beer} key={index} /> )
-                    }   
-                </ul>
             )
     }
 }

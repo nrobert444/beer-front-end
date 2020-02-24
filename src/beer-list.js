@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import { getBeer } from './api.js'
 import Beer from './beer-item.js';
+import { Link } from 'react-router-dom';
+import request from 'superagent';
 
 export default class List extends Component {
-    state = { beer: {} }
+    state = { beer: [] }
 
     async componentDidMount() {
-        const data = await getBeer;
+        const data = await request.get(`https://agile-coast-09251.herokuapp.com/api/beers`);
+        console.log(data)
         if (data.body) {
         this.setState({ beer: data.body })
         }
     }
     render() {
-        const { beer } = this.state;
         return (
             <div className = 'beer-list'>
-                <Beer beers={ beer } />
+                 <ul>
+                    {
+                    this.state.beer.map((beer, index) =>
+                    <Link to={`/{beerId}`} key={index}>
+                    <Beer beer={beer} key={index} /> 
+                    </Link> )
+                    }   
+                </ul>
             </div>
       );
     }
