@@ -15,6 +15,7 @@ export default class Beer extends Component {
         <li>
             <div className = "detail-item">
                     <p>Name: { name }</p>
+                    <Link to={`update/${beer.id}`}>Update</Link>
                     <p><img src={ url } alt={ url }/></p>
                     <p>ABV: { ABV }</p>
                     <p>Brewery: { brewery }</p>

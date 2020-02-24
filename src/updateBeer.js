@@ -1,17 +1,29 @@
 import React, { Component } from 'react'
 import request from 'superagent';
 
-export default class addBeer extends Component {
+export default class UpdateBeer extends Component {
         state = {
             styles: [],
-            is_season: true,
-            style: 1,
+            
         };
     
         componentDidMount = async () => {
             const styles = await request.get(`https://agile-coast-09251.herokuapp.com/api/styles`);
             
             this.setState({ styles: styles.body });
+
+            const beer = await request.get(`https://agile-coast-09251.herokuapp.com/api/beer/${this.props.match.params.beerId}`);
+            
+            const beerToUpdate = beer.body[0];
+
+            this.setState({
+                name: beerToUpdate.name,
+                brewery: beerToUpdate.brewery,
+                style_id: beerToUpdate.style,
+                url: beerToUpdate.image,
+                abv: beerToUpdate.abv,
+                is_season: beerToUpdate.is_season,
+            });
         }
         handleNameChange = (e) => {
             this.setState({ name: e.target.value })
@@ -41,6 +53,13 @@ export default class addBeer extends Component {
         handleImageChange = (e) => {
             this.setState({ image: e.target.value })
         }
+        
+        handleDelete = async() =>{
+            await request.delete(`https://agile-coast-09251.herokuapp.com/api/beer/${this.props.match.params.beerId}`);
+
+            this.props.history.push('/');
+
+        }
     
         handleSubmit = async (e) => {
             e.preventDefault();
@@ -52,11 +71,12 @@ export default class addBeer extends Component {
                 url: this.state.image,
                 abv: this.state.abv,
                 is_season: this.state.is_season,
+                id: Number(this.props.match.params.id)
             }
-            const dbBeer = await request.post(`https://agile-coast-09251.herokuapp.com/api/beers`, newBeer);
+            const updateBeer = await request.put(`https://agile-coast-09251.herokuapp.com/api/beers`, newBeer);
     
     
-            console.log(dbBeer)
+            console.log(updateBeer)
     
             this.props.history.push('/');
         }
@@ -65,7 +85,7 @@ export default class addBeer extends Component {
             return (
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        Add a beer!
+                        Update a beer!
                         <br/>
                         <label>
                             Name: 
@@ -83,7 +103,7 @@ export default class addBeer extends Component {
                         <br/>
                         <label>
                             Brewery: 
-                            <input value={this.state.brewery} onChange={this.handleBreweryChange} />
+                            <input value ={this.state.brewery} onChange={this.handleBreweryChange} />
                         </label>
                         <br/>
                         <label>
@@ -107,6 +127,8 @@ export default class addBeer extends Component {
                         <br />
                     <button>Submit</button>
                     </form>
+                    <button onClick={this.handleDelete}>Delete</button>
+
                 </div>
             )
         }
