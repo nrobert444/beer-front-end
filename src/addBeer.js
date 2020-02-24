@@ -11,7 +11,7 @@ export default class addBeer extends Component {
         componentDidMount = async () => {
             const styles = await request.get(`https://agile-coast-09251.herokuapp.com/api/styles`);
             
-            this.setState({ Styles: styles.body });
+            this.setState({ styles: styles.body });
         }
         handleNameChange = (e) => {
             this.setState({ name: e.target.value })
@@ -48,12 +48,12 @@ export default class addBeer extends Component {
             const newBeer = {
                 name: this.state.name,
                 brewery: this.state.brewery,
-                styleId: this.state.style,
+                style: this.state.style,
                 url: this.state.image,
                 abv: this.state.abv,
                 isSeason: this.state.isSeason,
             }
-            const dbBeer = await request.post(`https://agile-coast-09251.herokuapp.com/api/beers`, newBeer);
+            const dbBeer = await request.post(`https://agile-coast-09251.herokuapp.com/api/beers/$`, newBeer);
     
     
             console.log(dbBeer)
@@ -100,8 +100,8 @@ export default class addBeer extends Component {
                         <label>
                             Is in season: 
                             <select onChange={this.handleSeasonChange}>
-                                <option value="true" >True</option>
-                                <option value="false" >False</option>
+                                <option value='true' >True</option>
+                                <option value='false' >False</option>
                             </select>
                         </label>
                         <br />

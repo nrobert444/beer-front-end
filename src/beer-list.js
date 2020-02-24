@@ -8,7 +8,7 @@ export default class List extends Component {
 
     async componentDidMount() {
         const data = await request.get(`https://agile-coast-09251.herokuapp.com/api/beers`);
-        console.log(data)
+        console.log(data.body[0])
         if (data.body) {
         this.setState({ beer: data.body })
         }
@@ -19,7 +19,7 @@ export default class List extends Component {
                  <ul>
                     {
                     this.state.beer.map((beer, index) =>
-                    <Link to={`/{beerId}`} key={index}>
+                    <Link to={`/beer/${beer.id}`} key={index}>
                     <Beer beer={beer} key={index} /> 
                     </Link> )
                     }   

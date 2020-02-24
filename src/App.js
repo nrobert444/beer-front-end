@@ -24,7 +24,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path= '/' component={List} />
               <Route exact path= '/add' component={addBeer} />
-              <Route exact path= '/:beerId' component={Detail} />
+              <Route exact path= '/beer/:beerId' component={Detail} />
             </Switch>
           </Router>
             )

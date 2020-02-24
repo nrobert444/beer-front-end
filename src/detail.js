@@ -7,12 +7,13 @@ export default class Detail extends Component {
 
     async componentDidMount () {
         const data = await getBeer(this.props.match.params.beerId);
-        console.log(data)
-        if (data.body.results) {
-            this.setState({ beer: data.body.results[0] })
+        console.log(data.body)
+        if (data.body) {
+            this.setState({ beer: data.body[0] })
         }
     }
     render() {
+        console.log(this.state.beer)
         const { beer } = this.state;
         return (
             <Beer beer={beer} />
