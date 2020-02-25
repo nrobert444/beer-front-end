@@ -15,8 +15,8 @@ export default class List extends Component {
     }
     render() {
         return (
-            <div className = 'beer-list'>
-                 <ul>
+            <div>
+                 <ul className = 'beer-list'>
                     {
                     this.state.beer.map((beer, index) =>
                     <Link to={`/beer/${beer.id}`} key={index}>

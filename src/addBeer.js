@@ -105,7 +105,7 @@ export default class addBeer extends Component {
                             </select>
                         </label>
                         <br />
-                    <button>Submit</button>
+                    <button className ='myButton'>Submit</button>
                     </form>
                 </div>
             )

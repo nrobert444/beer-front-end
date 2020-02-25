@@ -127,9 +127,11 @@ export default class UpdateBeer extends Component {
                             </select>
                         </label>
                         <br />
-                    <button>Submit</button>
+                    <button className='myButton' >Submit</button>
                     </form>
-                    <button onClick={this.handleDelete}>Delete</button>
+                    <br>
+                    </br>
+                    <button className= 'myButton' onClick={this.handleDelete}>Delete</button>
 
                 </div>
             )
