@@ -74,7 +74,7 @@ export default class addBeer extends Component {
                         <br/>
                         <label>
                             Style: 
-                            <select value={this.state.style} onChange={ this.handleStyleChange }>
+                            <select value={this.state.style_id} onChange={ this.handleStyleChange }>
                                 { this.state.styles.map(style => <option value={style.id}> 
                                 {style.name}
                                 </option>)}
@@ -93,7 +93,7 @@ export default class addBeer extends Component {
                         <br/>
                         <label>
                             Image: 
-                            <input onChange={this.handleImageChange} />
+                            <input value={this.state.url} onChange={this.handleImageChange} />
                         </label>
                         <br/>
     

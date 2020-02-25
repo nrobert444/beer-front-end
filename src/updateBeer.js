@@ -41,7 +41,7 @@ export default class UpdateBeer extends Component {
         }
     
         handleBreweryChange = (e) => {
-            this.setState({ brewery: (e.target.value) })
+            this.setState({ brewery: e.target.value })
         }
     
         handleSeasonChange = (e) => {

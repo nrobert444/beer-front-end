@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateBeer renders correctly 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    Update a beer!
+    <br />
+    <label>
+      Name:
+      <input
+        onChange={[Function]}
+      />
+    </label>
+    <br />
+    <label>
+      Style:
+      <select
+        onChange={[Function]}
+      />
+    </label>
+    <br />
+    <label>
+      Brewery:
+      <input
+        onChange={[Function]}
+      />
+    </label>
+    <br />
+    <label>
+      ABV:
+      <input
+        onChange={[Function]}
+        type="number"
+      />
+    </label>
+    <br />
+    <label>
+      Image:
+      <input
+        onChange={[Function]}
+      />
+    </label>
+    <br />
+    <label>
+      Is in season:
+      <select
+        onChange={[Function]}
+      >
+        <option
+          value="true"
+        >
+          True
+        </option>
+        <option
+          value="false"
+        >
+          False
+        </option>
+      </select>
+    </label>
+    <br />
+    <button>
+      Submit
+    </button>
+  </form>
+  <button
+    onClick={[Function]}
+  >
+    Delete
+  </button>
+</div>
+`;

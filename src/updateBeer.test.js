@@ -1,10 +1,10 @@
 import React from 'react';
-import App from './App.js';
+import UpdateBeer from './updateBeer.js';
 import renderer from 'react-test-renderer';
 
-it('App renders correctly', () => {
+it('UpdateBeer renders correctly', () => {
   const tree = renderer
-    .create(< App />)
+    .create(<UpdateBeer />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

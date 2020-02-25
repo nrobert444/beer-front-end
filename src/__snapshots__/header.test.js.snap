@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header renders correctly 1`] = `
+<header>
+  <h1>
+    Welcome to the Beerhall.
+  </h1>
+  <h2>
+    Find your favorite beer or add a new one.
+  </h2>
+</header>
+`;
