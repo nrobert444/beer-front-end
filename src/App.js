@@ -9,8 +9,8 @@ import {
   Link,
   BrowserRouter as Router }
   from 'react-router-dom';
-// import beerhall from '../public/beerhall.jpg';
-import Header from './header.js';
+// import beerhall from 'public/beerhall.jpg';
+// import Header from './header.js';
 import UpdateBeer from './updateBeer.js';
 
 

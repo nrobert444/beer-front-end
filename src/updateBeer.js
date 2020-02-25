@@ -15,23 +15,25 @@ export default class UpdateBeer extends Component {
             const beer = await request.get(`https://agile-coast-09251.herokuapp.com/api/beer/${this.props.match.params.beerId}`);
             
             const beerToUpdate = beer.body[0];
+            console.log(beerToUpdate)
 
             this.setState({
                 name: beerToUpdate.name,
                 brewery: beerToUpdate.brewery,
-                style_id: beerToUpdate.style,
+                style_id: beerToUpdate.style_id,
                 url: beerToUpdate.image,
                 abv: beerToUpdate.abv,
-                is_season: beerToUpdate.is_season,
+                is_season: beerToUpdate.is_season
             });
         }
+
         handleNameChange = (e) => {
             this.setState({ name: e.target.value })
         }
     
         handleStyleChange = (e) => {
             console.log(e.target.value)
-            this.setState({ style: Number(e.target.value) })
+            this.setState({ style_id: Number(e.target.value) })
         }
     
         handleAbvChange = (e) => {
@@ -64,16 +66,16 @@ export default class UpdateBeer extends Component {
         handleSubmit = async (e) => {
             e.preventDefault();
     
-            const newBeer = {
+            const adjustBeer = {
                 name: this.state.name,
                 brewery: this.state.brewery,
-                style_id: this.state.style,
+                style_id: Number(this.state.style_id),
                 url: this.state.image,
-                abv: this.state.abv,
+                abv: Number(this.state.abv),
                 is_season: this.state.is_season,
-                id: Number(this.props.match.params.id)
+                id: Number(this.props.match.params.beerId)
             }
-            const updateBeer = await request.put(`https://agile-coast-09251.herokuapp.com/api/beers`, newBeer);
+            const updateBeer = await request.put(`https://agile-coast-09251.herokuapp.com/api/beers`, adjustBeer);
     
     
             console.log(updateBeer)
@@ -94,7 +96,7 @@ export default class UpdateBeer extends Component {
                         <br/>
                         <label>
                             Style: 
-                            <select value={this.state.style} onChange={ this.handleStyleChange }>
+                            <select value={this.state.style_id} onChange={ this.handleStyleChange }>
                                 { this.state.styles.map(style => <option value={style.id}> 
                                 {style.name}
                                 </option>)}
@@ -113,7 +115,7 @@ export default class UpdateBeer extends Component {
                         <br/>
                         <label>
                             Image: 
-                            <input onChange={this.handleImageChange} />
+                            <input value={this.state.image} onChange={this.handleImageChange} />
                         </label>
                         <br/>
     

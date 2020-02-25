@@ -5,7 +5,7 @@ export default class addBeer extends Component {
         state = {
             styles: [],
             is_season: true,
-            style: 1,
+            style_id: 1,
         };
     
         componentDidMount = async () => {
@@ -19,7 +19,7 @@ export default class addBeer extends Component {
     
         handleStyleChange = (e) => {
             console.log(e.target.value)
-            this.setState({ style: Number(e.target.value) })
+            this.setState({ style_id: Number(e.target.value) })
         }
     
         handleAbvChange = (e) => {
@@ -48,7 +48,7 @@ export default class addBeer extends Component {
             const newBeer = {
                 name: this.state.name,
                 brewery: this.state.brewery,
-                style_id: this.state.style,
+                style_id: this.state.style_id,
                 url: this.state.image,
                 abv: this.state.abv,
                 is_season: this.state.is_season,
