@@ -21,7 +21,7 @@ export default class UpdateBeer extends Component {
                 name: beerToUpdate.name,
                 brewery: beerToUpdate.brewery,
                 style_id: beerToUpdate.style_id,
-                url: beerToUpdate.image,
+                url: beerToUpdate.url,
                 abv: beerToUpdate.abv,
                 is_season: beerToUpdate.is_season
             });
@@ -53,7 +53,7 @@ export default class UpdateBeer extends Component {
         }
     
         handleImageChange = (e) => {
-            this.setState({ image: e.target.value })
+            this.setState({ url: e.target.value })
         }
         
         handleDelete = async() =>{
@@ -70,7 +70,7 @@ export default class UpdateBeer extends Component {
                 name: this.state.name,
                 brewery: this.state.brewery,
                 style_id: Number(this.state.style_id),
-                url: this.state.image,
+                url: this.state.url,
                 abv: Number(this.state.abv),
                 is_season: this.state.is_season,
                 id: Number(this.props.match.params.beerId)
@@ -115,7 +115,7 @@ export default class UpdateBeer extends Component {
                         <br/>
                         <label>
                             Image: 
-                            <input value={this.state.image} onChange={this.handleImageChange} />
+                            <input value={this.state.url} onChange={this.handleImageChange} />
                         </label>
                         <br/>
     

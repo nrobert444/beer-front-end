@@ -39,7 +39,7 @@ export default class addBeer extends Component {
         }
     
         handleImageChange = (e) => {
-            this.setState({ image: e.target.value })
+            this.setState({ url: e.target.value })
         }
     
         handleSubmit = async (e) => {
@@ -49,7 +49,7 @@ export default class addBeer extends Component {
                 name: this.state.name,
                 brewery: this.state.brewery,
                 style_id: this.state.style_id,
-                url: this.state.image,
+                url: this.state.url,
                 abv: this.state.abv,
                 is_season: this.state.is_season,
             }
