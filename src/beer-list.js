@@ -8,7 +8,7 @@ export default class List extends Component {
 
     async componentDidMount() {
         const data = await request.get(`https://agile-coast-09251.herokuapp.com/api/beers`);
-        console.log(data.body[0])
+        console.log(data.body);
         if (data.body) {
         this.setState({ beer: data.body })
         }
