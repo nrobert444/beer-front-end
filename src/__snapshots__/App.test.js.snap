@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+Array [
+  <header>
+    <h1>
+      Welcome to the Beerhall.
+    </h1>
+    <h2>
+      Find your favorite beer or add a new one.
+    </h2>
+  </header>,
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>,
+  <a
+    href="/add"
+    onClick={[Function]}
+  >
+    Add Beer
+  </a>,
+  <div
+    className="beer-list"
+  >
+    <ul />
+  </div>,
+]
+`;
